@@ -1,0 +1,14 @@
+---
+title: "Notes"
+format: html
+editor: visual
+---
+
+## 
+
+# Changed tools --\> project options --\> R markdown --\> canonical visual mode TRUE and text wrapping on column.
+
+## Poorly formatted markdown
+
+-   List item 1
+-   List item 2
