@@ -8,15 +8,26 @@ format: html
 
 ```{r setup}
 #| include: false
+library(tidyverse)
+source(here::here("R/functions.R"))
+lipidomics <-
+  read_csv(here::here("data/lipidomics.csv"))
 ```
+
+## Basic Statistics - table 1
 
 ```{r}
-# Code chunk
+lipidomics %>%
+  group_by(metabolite) %>%
+  summarise(across(
+    value,
+    list(
+      mean = mean,
+      sd = sd
+    )
+  )) %>%
+  mutate(across( # given these columns, do this action
+    where(is.numeric),
+    ~ round(.x, digits = 1) # the ~    ".x" refers to each column
+  ))
 ```
-
-# Changed tools --\> project options --\> R markdown --\> canonical visual mode TRUE and text wrapping on column.
-
-## Poorly formatted markdown
-
--   List item 1
--   List item 2
